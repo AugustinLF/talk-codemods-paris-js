@@ -1,0 +1,16 @@
+{
+  "name": "talk-codemods-paris-js",
+  "version": "1.0.0",
+  "description": "Slides for a talk given at Paris.js #84",
+  "main": "index.js",
+  "repository": "git@github.com:AugustinLF/talk-codemods-paris-js.git",
+  "author": "Augustin Le Fèvre <aulefevre@kilix.fr>",
+  "license": "CC-BY-SA-4.0",
+  "devDependencies": {
+    "mdx-deck": "^2.2.1",
+    "prettier": "^1.17.0"
+  },
+  "scripts": {
+    "dev": "mdx-deck deck.mdx"
+  }
+}

@@ -1,0 +1,48 @@
+import { Notes } from "mdx-deck";
+export { default as theme } from "./theme";
+
+# Writing code to transform your codebase
+
+---
+
+## About me
+
+I'm Augustin Le Fèvre. I work for Extia, currently contracting for Club Med. I mostly do front-end development.
+
+TODO joli tableau
+
+- https://twitter.com/GusgusLF
+- https://augustinlf.com
+- https://github.com/AugustinLF
+  https://github.com/AugustinLF.png
+
+---
+
+You execute a script, it updates your code.
+
+<Notes>Demo time</Notes>
+
+---
+
+## Codemods my teams ran
+
+- Tape -> jest
+- Mocha + chai -> jest
+- Decorators -> HOC
+- flow version bump
+- Props renaming on react components
+- ~150 components from components/index to components/myComponent
+
+---
+
+## Regex, search & replace are not always sufficient
+
+```js
+import createUser from "createUser";
+
+// before
+createUser({ name: "Augustin" });
+
+// after
+createUser({ name: "Augustin", id: null });
+```
