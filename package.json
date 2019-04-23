@@ -12,6 +12,7 @@
     "prettier": "^1.17.0"
   },
   "scripts": {
-    "dev": "mdx-deck deck.mdx"
+    "dev": "mdx-deck deck.mdx",
+    "transform": "yarn jscodeshift -t exampleCodemod.js sampleFile.js"
   }
 }
