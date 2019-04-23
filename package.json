@@ -7,6 +7,7 @@
   "author": "Augustin Le Fèvre <aulefevre@kilix.fr>",
   "license": "CC-BY-SA-4.0",
   "devDependencies": {
+    "jscodeshift": "^0.6.3",
     "mdx-deck": "^2.2.1",
     "prettier": "^1.17.0"
   },

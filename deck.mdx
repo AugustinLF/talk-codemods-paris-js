@@ -1,24 +1,22 @@
 import { Notes } from "mdx-deck";
-export { default as theme } from "./theme";
+import { syntaxHighlighterPrism, code } from "mdx-deck/themes";
+import { Me, Links } from "./me";
+
+export const themes = [code, syntaxHighlighterPrism];
 
 # Writing code to transform your codebase
 
 ---
 
-## About me
-
-I'm Augustin Le Fèvre. I work for Extia, currently contracting for Club Med. I mostly do front-end development.
-
-TODO joli tableau
-
-- https://twitter.com/GusgusLF
-- https://augustinlf.com
-- https://github.com/AugustinLF
-  https://github.com/AugustinLF.png
+<Me />
 
 ---
 
-You execute a script, it updates your code.
+<Links />
+
+---
+
+## You execute a script, it updates your code.
 
 <Notes>Demo time</Notes>
 
@@ -37,6 +35,8 @@ You execute a script, it updates your code.
 
 ## Regex, search & replace are not always sufficient
 
+---
+
 ```js
 import createUser from "createUser";
 
@@ -46,3 +46,65 @@ createUser({ name: "Augustin" });
 // after
 createUser({ name: "Augustin", id: null });
 ```
+
+---
+
+```javascript
+import makeUser from "createUser";
+
+// before
+makeUser({ name: "Augustin" });
+
+// after
+makeUser({ name: "Augustin", id: null });
+
+// How are you suppose to know that makeUser
+// corresponds to createUser?
+```
+
+---
+
+## How a codemod works?
+
+---
+
+- Source code -> AST
+- Query and manipulate the AST
+- Convert back the new AST to source code
+
+---
+
+## Abstract Syntax Tree
+
+---
+
+<img src="./assets/AST.jpg" />
+
+<Notes>
+  This is not specific to jscodeshift, not to JavaScript. This follows a spec
+  made by Mozilla. You'll find AST when working on plugins for babel or eslint,
+  or whenever you'll work with a compiler.
+</Notes>
+
+---
+
+- jscodeshift is a CLI tool that will go through your files, send them to child processes, etc.
+- Use a parser to create an AST from a string: babel, flow, ts
+- Attach metadata to the AST to better navigate (`path.parent`) for instance, thanks to recast & ast-types. This also lets us keep the formatting of the code
+- Transform this AST, using jscodeshift with a jquery-like API. Create new nodes using ast-types.
+- Print the AST back to code
+
+---
+
+## https://astexplorer.net/
+
+---
+
+Resources
+
+- https://github.com/facebook/jscodeshift
+- https://github.com/benjamn/recast
+- https://github.com/benjamn/ast-types
+- Mozilla Parser API: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API
+- Babel Plugin handbook https://github.com/jamiebuilds/babel-handbook
+- Christoph Nakazawa: Evolving Complex Systems Incrementally | JSConf EU 2015 https://www.youtube.com/watch?v=d0pOgY8__JM
