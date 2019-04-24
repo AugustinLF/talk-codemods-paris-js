@@ -1,8 +1,12 @@
-import { Notes } from "mdx-deck";
+import { Notes, Appear } from "mdx-deck";
 import { syntaxHighlighterPrism, code } from "mdx-deck/themes";
 import { Me, Links } from "./me";
 
-export const themes = [code, syntaxHighlighterPrism];
+export const themes = [
+  code,
+  syntaxHighlighterPrism,
+  { li: { fontSize: 24 }, pre: { fontSize: 24 } }
+];
 
 # Writing code to transform your codebase
 
@@ -64,13 +68,25 @@ makeUser({ name: "Augustin", id: null });
 
 ---
 
-## How a codemod works?
+## How does a codemod work?
 
 ---
 
-- Source code -> AST
-- Query and manipulate the AST
-- Convert back the new AST to source code
+<div>Source code (string)</div>
+<Appear>
+  <div>
+    <div>↓</div>
+    <div>AST</div>
+  </div>
+  <div>
+    <div>↓</div>
+    <div>AST manipulation</div>
+  </div>
+  <div>
+    <div>↓</div>
+    <div>Code</div>
+  </div>
+</Appear>
 
 ---
 
@@ -88,11 +104,11 @@ makeUser({ name: "Augustin", id: null });
 
 ---
 
-- jscodeshift is a CLI tool that will go through your files, send them to child processes, etc.
-- Use a parser to create an AST from a string: babel, flow, ts
-- Attach metadata to the AST to better navigate (`path.parent`) for instance, thanks to recast & ast-types. This also lets us keep the formatting of the code
-- Transform this AST, using jscodeshift with a jquery-like API. Create new nodes using ast-types.
-- Print the AST back to code
+- CLI to run the codemods, jscodeshift
+- Parse the code with recast (uses babel or else behind the scenes)
+- Query the AST with jscodeshift (jquery-like API)
+- Create new nodes with ast-types
+- Print back the code, using recast
 
 ---
 
@@ -102,9 +118,13 @@ makeUser({ name: "Augustin", id: null });
 
 Resources
 
+<div style={{paddingRight: '5%', paddingLeft: '5%'}}>
+
 - https://github.com/facebook/jscodeshift
 - https://github.com/benjamn/recast
 - https://github.com/benjamn/ast-types
 - Mozilla Parser API: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API
 - Babel Plugin handbook https://github.com/jamiebuilds/babel-handbook
 - Christoph Nakazawa: Evolving Complex Systems Incrementally | JSConf EU 2015 https://www.youtube.com/watch?v=d0pOgY8__JM
+
+</div>
