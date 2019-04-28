@@ -1,7 +1,6 @@
 import React from "react";
 import * as themes from "mdx-deck/themes";
 
-console.log(themes);
 const BackDrop = () => (
   <div
     style={{

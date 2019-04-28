@@ -7,12 +7,14 @@
   "author": "Augustin Le Fèvre <aulefevre@kilix.fr>",
   "license": "CC-BY-SA-4.0",
   "devDependencies": {
+    "@now/static-build": "^0.5.0",
     "jscodeshift": "^0.6.3",
     "mdx-deck": "^2.2.1",
     "prettier": "^1.17.0"
   },
   "scripts": {
     "dev": "mdx-deck deck.mdx",
-    "transform": "yarn jscodeshift -t exampleCodemod.js sampleFile.js"
+    "transform": "yarn jscodeshift -t exampleCodemod.js sampleFile.js",
+    "now-build": "mdx-deck build deck.mdx && cp -r assets dist"
   }
 }
