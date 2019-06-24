@@ -1,0 +1,15 @@
+{
+  "name": "talk-codemods-paris-js",
+  "version": "1.0.0",
+  "description": "Slides for a talk given at Paris.js #84",
+  "devDependencies": {
+    "@now/static-build": "^0.5.0",
+    "jscodeshift": "^0.6.3",
+    "mdx-deck": "^2.2.1"
+  },
+  "scripts": {
+    "dev": "mdx-deck deck.mdx",
+    "transform": "yarn jscodeshift -t exampleCodemod.js sampleFile.js",
+    "now-build": "mdx-deck build deck.mdx && cp -r assets dist"
+  }
+}
