@@ -1,0 +1,11 @@
+{
+  "name": "talk-react-europe-extia",
+  "version": "1.0.0",
+  "description": "Slides for a talk given at Extia",
+  "devDependencies": {
+    "mdx-deck": "^2.2.1"
+  },
+  "scripts": {
+    "dev": "mdx-deck deck.mdx"
+  }
+}

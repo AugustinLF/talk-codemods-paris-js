@@ -41,7 +41,7 @@ const Slide = ({ children }) => (
     style={{
       width: "100vw",
       height: "100vh",
-      backgroundImage: 'url("./assets/yannick-pulver-1529153-unsplash.jpg")',
+      backgroundImage: 'url("assets/yannick-pulver-1529153-unsplash.jpg")',
       backgroundSize: "cover",
       position: "relative",
       color: "white"

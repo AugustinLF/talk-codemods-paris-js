@@ -1,0 +1,9 @@
+{
+  "name": "shared",
+  "version": "1.0.0",
+  "description": "Shared content between decks",
+  "main": "index.js",
+  "devDependencies": {
+    "mdx-deck": "^2.2.1"
+  }
+}
